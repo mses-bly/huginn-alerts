@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "name": "Job Search Alerts",
+  "description": "Alerts for jobs on companies that I'm interested in",
+  "source_url": false,
+  "guid": "ccf4213c323fe3fbf20b89bdf8bca84d",
+  "tag_fg_color": "#ffffff",
+  "tag_bg_color": "#5bc0de",
+  "icon": "inbox",
+  "exported_at": "2024-11-20T16:03:03Z",
+  "agents": [
+    {
+      "type": "Agents::WebsiteAgent",
+      "name": "Stripe Careers",
+      "disabled": false,
+      "guid": "fc7645463cb9f84704171914997ea390",
+      "options": {
+        "expected_update_period_in_days": "2",
+        "url": "https://stripe.com/jobs/search?remote_locations=North+America--Canada+Remote&remote_locations=North+America--Mexico+Remote&remote_locations=North+America--US+Remote&office_locations=North+America--Chicago&office_locations=North+America--Mexico+City&office_locations=North+America--New+York&office_locations=North+America--Seattle&office_locations=North+America--South+San+Francisco&office_locations=North+America--Toronto",
+        "type": "html",
+        "mode": "on_change",
+        "extract": {
+          "url": {
+            "css": ".JobsListings__link",
+            "value": "@href"
+          },
+          "title": {
+            "css": ".JobsListings__link",
+            "value": "string(.)"
+          }
+        }
+      },
+      "schedule": "9am",
+      "keep_events_for": 0,
+      "propagate_immediately": false
+    }
+  ],
+  "links": [],
+  "control_links": []
+}
